@@ -1,4 +1,7 @@
-import { Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { clinic } from "@/data/clinic";
@@ -15,6 +18,7 @@ const nav = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -22,6 +26,11 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isActive = (to: string) => {
+    if (to === "/") return pathname === "/";
+    return pathname.startsWith(to);
+  };
 
   return (
     <header
@@ -32,7 +41,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 container-px py-3">
-        <Link to="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-2.5 group" onClick={() => setOpen(false)}>
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-hero-gradient text-white font-bold shadow-elegant">
             M
           </div>
@@ -50,10 +59,12 @@ export function Header() {
           {nav.map((n) => (
             <Link
               key={n.to}
-              to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-primary" }}
-              className="rounded-md px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              href={n.to}
+              className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                isActive(n.to)
+                  ? "text-primary font-semibold"
+                  : "text-foreground/80 hover:text-primary"
+              }`}
             >
               {n.label}
             </Link>
@@ -68,7 +79,7 @@ export function Header() {
             <Phone className="h-3.5 w-3.5" /> {clinic.phone}
           </a>
           <Link
-            to="/book"
+            href="/book"
             className="hidden rounded-full bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:opacity-90 md:inline-flex"
           >
             Book Appointment
@@ -90,17 +101,19 @@ export function Header() {
             {nav.map((n) => (
               <Link
                 key={n.to}
-                to={n.to}
-                activeOptions={{ exact: n.to === "/" }}
-                activeProps={{ className: "text-primary bg-primary-soft" }}
+                href={n.to}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2.5 text-sm font-medium text-foreground/80"
+                className={`rounded-md px-3 py-2.5 text-sm font-medium ${
+                  isActive(n.to)
+                    ? "text-primary bg-primary-soft font-semibold"
+                    : "text-foreground/80 hover:text-primary"
+                }`}
               >
                 {n.label}
               </Link>
             ))}
             <Link
-              to="/book"
+              href="/book"
               onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
             >

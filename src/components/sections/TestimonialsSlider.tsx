@@ -1,3 +1,5 @@
+"use client";
+
 import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -32,7 +34,10 @@ export function TestimonialsSlider() {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex gap-5">
               {testimonials.map((t) => (
-                <div key={t.name} className="min-w-0 shrink-0 grow-0 basis-full sm:basis-1/2 lg:basis-1/3">
+                <div
+                  key={t.name}
+                  className="min-w-0 shrink-0 grow-0 basis-full sm:basis-1/2 lg:basis-1/3"
+                >
                   <TestimonialCard t={t} />
                 </div>
               ))}

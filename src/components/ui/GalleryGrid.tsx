@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { gallery, categories, type GalleryItem } from "@/data/gallery";
 

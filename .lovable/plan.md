@@ -5,6 +5,7 @@ A premium, trust-building healthcare website on the project's TanStack Start sta
 ## Design system
 
 Theme tokens in `src/styles.css` (oklch, light + dark):
+
 - `--primary`: Medical Blue (~#0A6FB8)
 - `--primary-deep` / accent: Deep Navy (~#0B1F3A)
 - `--accent-soft`: Trust Teal (~#1FB6A6) — limited use for highlights / icon backgrounds
@@ -81,6 +82,7 @@ src/lib/
 ## Imagery (AI-generated, Indian context)
 
 Generated with `generate_image` into `src/assets/`:
+
 - `hero-physio.jpg` — Indian physiotherapist (male, ~35, light blue scrubs) guiding a senior patient through knee rehab in a bright modern clinic. 16:9.
 - `doctor-ajit.jpg` — professional portrait, Indian male physiotherapist, white coat, clinic backdrop.
 - `about-clinic.jpg` — wide shot of modern Indian physio clinic interior.

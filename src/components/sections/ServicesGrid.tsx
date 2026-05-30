@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { services } from "@/data/services";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -22,7 +22,7 @@ export function ServicesGrid({ limit, showAll = true }: Props) {
       {showAll && limit && (
         <div className="mt-10 text-center">
           <Link
-            to="/services"
+            href="/services"
             className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-primary-deep hover:border-primary hover:text-primary"
           >
             View all services

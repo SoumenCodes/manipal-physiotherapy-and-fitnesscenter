@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { Award, CheckCircle2 } from "lucide-react";
 import doctorImg from "@/assets/doctor-ajit.jpg";
 import { doctor } from "@/data/doctor";
@@ -9,7 +9,7 @@ export function DoctorCard() {
       <div className="grid items-center gap-10 rounded-3xl border border-border bg-card p-6 shadow-card sm:p-10 md:grid-cols-[1fr_1.4fr]">
         <div className="relative overflow-hidden rounded-2xl">
           <img
-            src={doctorImg}
+            src={doctorImg.src}
             alt={`${doctor.name} — ${doctor.title}`}
             width={1024}
             height={1280}
@@ -24,7 +24,9 @@ export function DoctorCard() {
           <div className="inline-flex items-center rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             Meet your therapist
           </div>
-          <h2 className="mt-3 text-3xl font-semibold text-primary-deep sm:text-4xl">{doctor.name}</h2>
+          <h2 className="mt-3 text-3xl font-semibold text-primary-deep sm:text-4xl">
+            {doctor.name}
+          </h2>
           <p className="mt-1 text-sm font-medium text-primary">{doctor.title}</p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">{doctor.bio}</p>
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
@@ -36,13 +38,13 @@ export function DoctorCard() {
           </ul>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
-              to="/book"
+              href="/book"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-elegant hover:opacity-90"
             >
               Book a Consultation
             </Link>
             <Link
-              to="/about"
+              href="/about"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-5 py-2.5 text-sm font-semibold text-primary-deep hover:border-primary hover:text-primary"
             >
               More about us

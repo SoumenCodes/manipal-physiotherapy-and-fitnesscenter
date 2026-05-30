@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { clinic, fullAddress } from "@/data/clinic";
 
@@ -37,7 +37,7 @@ export function Footer() {
               ["/contact", "Contact"],
             ].map(([to, label]) => (
               <li key={to}>
-                <Link to={to as string} className="hover:text-white">
+                <Link href={to as string} className="hover:text-white">
                   {label}
                 </Link>
               </li>

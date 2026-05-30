@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import type { Service } from "@/data/services";
 import { whatsappUrl, bookServiceMessage } from "@/lib/whatsapp";
@@ -27,7 +27,7 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
       </ul>
       <div className="mt-5 flex items-center justify-between gap-2">
         <Link
-          to="/book"
+          href="/book"
           className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
         >
           Learn more <ArrowRight className="h-4 w-4" />

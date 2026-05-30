@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { clinic } from "@/data/clinic";
 
@@ -18,7 +18,7 @@ export function CTABand() {
           </div>
           <div className="flex flex-wrap gap-3 md:justify-end">
             <Link
-              to="/book"
+              href="/book"
               className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary-deep shadow-elegant hover:opacity-95"
             >
               Book Appointment <ArrowRight className="h-4 w-4" />

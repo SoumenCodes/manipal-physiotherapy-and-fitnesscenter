@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -58,42 +60,90 @@ export function AppointmentForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className={label} htmlFor="fullName">Full Name</label>
-          <input id="fullName" type="text" className={`${field} mt-1.5`} placeholder="Your name" {...register("fullName")} />
+          <label className={label} htmlFor="fullName">
+            Full Name
+          </label>
+          <input
+            id="fullName"
+            type="text"
+            className={`${field} mt-1.5`}
+            placeholder="Your name"
+            {...register("fullName")}
+          />
           {errors.fullName && <p className={err}>{errors.fullName.message}</p>}
         </div>
         <div>
-          <label className={label} htmlFor="phone">Phone Number</label>
-          <input id="phone" type="tel" className={`${field} mt-1.5`} placeholder="+91 ..." {...register("phone")} />
+          <label className={label} htmlFor="phone">
+            Phone Number
+          </label>
+          <input
+            id="phone"
+            type="tel"
+            className={`${field} mt-1.5`}
+            placeholder="+91 ..."
+            {...register("phone")}
+          />
           {errors.phone && <p className={err}>{errors.phone.message}</p>}
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label className={label} htmlFor="age">Age</label>
-          <input id="age" type="number" min={1} max={120} className={`${field} mt-1.5`} placeholder="Age" {...register("age")} />
+          <label className={label} htmlFor="age">
+            Age
+          </label>
+          <input
+            id="age"
+            type="number"
+            min={1}
+            max={120}
+            className={`${field} mt-1.5`}
+            placeholder="Age"
+            {...register("age")}
+          />
           {errors.age && <p className={err}>{errors.age.message}</p>}
         </div>
         <div>
-          <label className={label} htmlFor="preferredDate">Preferred Date</label>
-          <input id="preferredDate" type="date" min={today} className={`${field} mt-1.5`} {...register("preferredDate")} />
+          <label className={label} htmlFor="preferredDate">
+            Preferred Date
+          </label>
+          <input
+            id="preferredDate"
+            type="date"
+            min={today}
+            className={`${field} mt-1.5`}
+            {...register("preferredDate")}
+          />
           {errors.preferredDate && <p className={err}>{errors.preferredDate.message}</p>}
         </div>
       </div>
       <div>
-        <label className={label} htmlFor="problem">Problem / Concern</label>
+        <label className={label} htmlFor="problem">
+          Problem / Concern
+        </label>
         <select id="problem" className={`${field} mt-1.5`} {...register("problem")} defaultValue="">
-          <option value="" disabled>Select a concern</option>
+          <option value="" disabled>
+            Select a concern
+          </option>
           {services.map((s) => (
-            <option key={s.slug} value={s.title}>{s.title}</option>
+            <option key={s.slug} value={s.title}>
+              {s.title}
+            </option>
           ))}
           <option value="Other">Other</option>
         </select>
         {errors.problem && <p className={err}>{errors.problem.message}</p>}
       </div>
       <div>
-        <label className={label} htmlFor="message">Message (optional)</label>
-        <textarea id="message" rows={4} className={`${field} mt-1.5`} placeholder="Briefly describe your symptoms" {...register("message")} />
+        <label className={label} htmlFor="message">
+          Message (optional)
+        </label>
+        <textarea
+          id="message"
+          rows={4}
+          className={`${field} mt-1.5`}
+          placeholder="Briefly describe your symptoms"
+          {...register("message")}
+        />
         {errors.message && <p className={err}>{errors.message.message}</p>}
       </div>
       <button
@@ -101,11 +151,16 @@ export function AppointmentForm() {
         disabled={submitting}
         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-elegant transition hover:opacity-95 disabled:opacity-60"
       >
-        {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : <MessageCircle className="h-4 w-4" />}
+        {submitting ? (
+          <Loader2 className="h-4 w-4 animate-spin" />
+        ) : (
+          <MessageCircle className="h-4 w-4" />
+        )}
         Send via WhatsApp
       </button>
       <p className="text-center text-xs text-muted-foreground">
-        Your appointment request will open WhatsApp with details prefilled. Send the message to confirm.
+        Your appointment request will open WhatsApp with details prefilled. Send the message to
+        confirm.
       </p>
     </form>
   );

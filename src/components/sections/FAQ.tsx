@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { faqs } from "@/data/faqs";
@@ -24,7 +26,11 @@ export function FAQ() {
                 aria-expanded={isOpen}
               >
                 <span className="text-sm font-semibold text-primary-deep sm:text-base">{f.q}</span>
-                {isOpen ? <Minus className="h-4 w-4 text-primary" /> : <Plus className="h-4 w-4 text-primary" />}
+                {isOpen ? (
+                  <Minus className="h-4 w-4 text-primary" />
+                ) : (
+                  <Plus className="h-4 w-4 text-primary" />
+                )}
               </button>
               {isOpen && (
                 <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:text-base">

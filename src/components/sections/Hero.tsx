@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ArrowRight, Phone, ShieldCheck, Stethoscope, Sparkles, HomeIcon } from "lucide-react";
 import heroPhysio from "@/assets/hero-physio.jpg";
 import { clinic } from "@/data/clinic";
@@ -32,7 +32,7 @@ export function Hero() {
 
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
-              to="/book"
+              href="/book"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-elegant transition hover:opacity-90"
             >
               Book Appointment <ArrowRight className="h-4 w-4" />
@@ -62,7 +62,7 @@ export function Hero() {
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-hero-gradient opacity-20 blur-2xl" />
           <div className="overflow-hidden rounded-[1.75rem] border border-border bg-card shadow-elegant">
             <img
-              src={heroPhysio}
+              src={heroPhysio.src}
               alt="Physiotherapist assisting an elderly patient with knee rehabilitation in a modern Jamshedpur clinic"
               width={1600}
               height={1024}

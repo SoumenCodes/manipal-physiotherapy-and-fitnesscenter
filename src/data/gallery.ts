@@ -13,13 +13,37 @@ export type GalleryItem = {
 };
 
 export const gallery: GalleryItem[] = [
-  { src: clinicInterior, alt: "Spacious modern physiotherapy treatment hall", category: "interior" },
-  { src: reception, alt: "Reception and waiting area at our Jamshedpur clinic", category: "interior" },
-  { src: treatmentBack, alt: "Therapist guiding spine mobility exercise", category: "sessions" },
-  { src: treatmentRehab, alt: "Gait training on parallel bars during rehab", category: "sessions" },
-  { src: treatmentShoulder, alt: "Shoulder rehabilitation with resistance bands", category: "sessions" },
-  { src: heroPhysio, alt: "Senior patient knee rehabilitation session", category: "care" },
-  { src: equipmentTens, alt: "Electrotherapy and ultrasound therapy equipment", category: "equipment" },
+  {
+    src: clinicInterior.src,
+    alt: "Spacious modern physiotherapy treatment hall",
+    category: "interior",
+  },
+  {
+    src: reception.src,
+    alt: "Reception and waiting area at our Jamshedpur clinic",
+    category: "interior",
+  },
+  {
+    src: treatmentBack.src,
+    alt: "Therapist guiding spine mobility exercise",
+    category: "sessions",
+  },
+  {
+    src: treatmentRehab.src,
+    alt: "Gait training on parallel bars during rehab",
+    category: "sessions",
+  },
+  {
+    src: treatmentShoulder.src,
+    alt: "Shoulder rehabilitation with resistance bands",
+    category: "sessions",
+  },
+  { src: heroPhysio.src, alt: "Senior patient knee rehabilitation session", category: "care" },
+  {
+    src: equipmentTens.src,
+    alt: "Electrotherapy and ultrasound therapy equipment",
+    category: "equipment",
+  },
 ];
 
 export const categories = [
