@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { clinic, fullAddress } from "@/data/clinic";
 import { whatsappUrl, bookServiceMessage } from "@/lib/whatsapp";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -52,7 +53,7 @@ export default function ContactPage() {
       accent: "text-primary",
     },
     {
-      icon: MessageCircle,
+      icon: WhatsAppIcon,
       label: "WhatsApp",
       value: "Chat with us instantly",
       href: whatsappUrl(bookServiceMessage()),
@@ -146,7 +147,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white shadow-elegant"
             >
-              <MessageCircle className="h-4 w-4" /> Message on WhatsApp
+              <WhatsAppIcon className="h-4 w-4" /> Message on WhatsApp
             </a>
           </div>
           <div className="overflow-hidden rounded-3xl border border-border shadow-card">

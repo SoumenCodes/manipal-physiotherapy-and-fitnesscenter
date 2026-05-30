@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import type { Service } from "@/data/services";
 import { whatsappUrl, bookServiceMessage } from "@/lib/whatsapp";
 
@@ -39,7 +40,7 @@ export function ServiceCard({ service, index = 0 }: { service: Service; index?: 
           aria-label={`Book ${service.title} on WhatsApp`}
           className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#25D366] text-white opacity-80 transition hover:opacity-100"
         >
-          <MessageCircle className="h-4 w-4" />
+          <WhatsAppIcon className="h-4 w-4" />
         </a>
       </div>
     </article>

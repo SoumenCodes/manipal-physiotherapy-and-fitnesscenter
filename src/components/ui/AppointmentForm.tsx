@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { MessageCircle, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappUrl, appointmentFormMessage } from "@/lib/whatsapp";
 import { services } from "@/data/services";
 
@@ -154,7 +155,7 @@ export function AppointmentForm() {
         {submitting ? (
           <Loader2 className="h-4 w-4 animate-spin" />
         ) : (
-          <MessageCircle className="h-4 w-4" />
+          <WhatsAppIcon className="h-4 w-4" />
         )}
         Send via WhatsApp
       </button>
