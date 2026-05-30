@@ -1,29 +1,48 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Hero } from "@/components/sections/Hero";
+import { ServicesGrid } from "@/components/sections/ServicesGrid";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import { DoctorCard } from "@/components/sections/DoctorCard";
+import { TestimonialsSlider } from "@/components/sections/TestimonialsSlider";
+import { FAQ } from "@/components/sections/FAQ";
+import { CTABand } from "@/components/sections/CTABand";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { faqs } from "@/data/faqs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Best Physiotherapy in Jamshedpur | Manipal Physiotherapy & Fitness Centre" },
+      { name: "description", content: "Expert physiotherapy, rehabilitation and fitness care in Jamshedpur. Back pain, knee pain, sports injury, paralysis rehab and home visits. Book today." },
+      { property: "og:title", content: "Manipal Physiotherapy & Fitness Centre — Jamshedpur" },
+      { property: "og:description", content: "Move better. Live pain free. Premium physiotherapy care in Baridih, Jamshedpur." },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <JsonLd data={faqLd} />
+      <Hero />
+      <ServicesGrid limit={8} />
+      <WhyChooseUs />
+      <DoctorCard />
+      <TestimonialsSlider />
+      <FAQ />
+      <CTABand />
+    </>
   );
 }
